@@ -1,0 +1,313 @@
+/* ====================================================MAPEAMENTO DOS ESTILOS================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');/*Particularmente não gostei nenhum pouco desta fonte*/
+
+
+:root{
+    /* CORES */
+    --blue-primary-bigFont: #BED5E0;
+    --blue-primary: #799FAC;
+    --blue-primary-hover: #4c717d;
+
+    --orange-primary: #ECA769;
+    /* FONTES */
+    --titulos: 'Bebas Neue', sans-serif;
+    --textos: 'Abel', sans-serif;
+
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+section{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/*======================================================ESTILIZAÇÃO NAVBAR====================================================*/
+
+.area-navbar{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 40px;
+
+
+}
+
+.area-navbar .navbar{
+    /*TAMANHO*/
+    width: 93%;
+    /* ORGANIZAÇÃO DE ELEMENTOS */
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    /* ESPAÇAMENTO */
+    /* CORES */
+    background-color: transparent;
+    /* FONTE */
+    font-family: var(--titulos);
+}
+
+.area-navbar .navbar .area-logo p{
+    font-size: 23px;
+    color: var(--blue-primary);
+}
+
+.area-navbar .navbar.second .area-logo p{
+    color: #ffff;
+}
+
+/* Estilo para os links da navbar */
+.area-navbar .navbar a {
+    text-decoration: none;
+    color: var(--blue-primary);
+    margin: 0 10px;
+    font-size: 23px;
+    transition: color 0.5s ease;
+}
+
+.area-navbar .navbar.second a {
+    color: #ffff;
+}
+
+.area-navbar .navbar a:hover{
+    color: var(--blue-primary-hover);
+}
+
+/* quando a pagina for scrollada uma pequena sombra se forma abaixo da navbar */
+.navbar.shadow{ 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+
+}
+
+/*======================================================FIM ESTILIZAÇÃO NAVBAR====================================================*/
+
+.container-display{
+    display: block;
+    width: 100%;
+}
+
+.container-inicio {
+    display: block;
+    height: 600px;
+    z-index: 1;
+}
+
+.area-img-inicio{
+    /* TAMANHO */
+    width: 100%;
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    justify-content: center;
+
+}
+
+.area-img-inicio .text-cover{
+    position: absolute;
+    transform: translateY();
+    transition: top 0.5s ease;
+    top: 115px;
+    z-index: 0;
+}
+
+.text-cover.second{
+    z-index: 2;
+}
+
+.area-img-inicio .text-cover path{
+    transition: fill 0.5s ease;
+    fill: var(--blue-primary-bigFont)
+    
+}
+
+.area-img-inicio .text-cover.second path{
+    fill: #ffff;
+}
+
+.area-img-inicio .image-cover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 170px;
+   
+
+    transform: translateY();
+    transition: top 0.5s ease;
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out;
+    filter: blur(0);
+    opacity: 1;
+}
+
+.image-cover.second{
+    top: 0; 
+}
+
+.area-img-inicio img.fade-out {
+    filter: blur(10px);
+    opacity: 0;
+} 
+
+.area-img-inicio img.fade-in {
+    filter: blur(0);
+    opacity: 1;
+}
+
+.container-sobre{
+    width: 100%;
+
+    background-color: #ffff;
+    margin-top: 200px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container-sobre .box-top-sobre{
+    display: flex;
+    width: 100%;
+
+    padding-left: 15px;
+    justify-content: space-between;
+}
+
+.container-sobre .box-top-sobre .area-map-image {
+    width: 50%;
+}
+
+.container-sobre .box-top-sobre .area-map-image img{
+    width: 100%;
+}
+
+.container-sobre p{
+    font-family: var(--textos);
+    color: var(--orange-primary);
+    font-size: 25px;
+    width: 32%;
+}
+
+.container-sobre .area-cards {
+    font-family: var(--titulos);
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-sobre .area-cards p{
+    font-size: 12px;
+    color: #fff;
+}
+.container-sobre .card{
+    text-align: center;
+    background-color: var(--orange-primary);
+    width: 140px;
+    height: 36px;
+    border-radius: 12px;
+    color: #ffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-servico {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-servico .area-cards {
+    width: 100%;
+    height: 470px;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-family: var(--titulos);
+}
+
+.container-servico .card {
+    height: 100%;
+    width: fit-content;
+    position: relative;
+    overflow: hidden; /* Garantir que o filtro não ultrapasse os limites do card */
+}
+
+.container-servico .card .state {
+    color: var(--blue-primary-bigFont);
+    font-size: 23px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: -15px;
+}
+
+.container-servico .card .country {
+    color: var(--orange-primary);
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.container-servico .card img {
+    height: 100%;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.container-servico .card .text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container-servico .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Filtro escuro */
+    transition: opacity 0.5s ease;
+    opacity: 0; /* Invisível por padrão */
+    z-index: 1;
+}
+
+.container-servico .card .hover-map {
+    position: absolute;
+    top: 77px;
+    left: 20px;
+    width: 85%;
+    height: 60%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 3;
+}
+
+.container-servico .card:hover .hover-map{
+    opacity: 1;
+}
+
+.container-servico .card:hover::after {
+    opacity: 1; /* Filtro escuro visível ao passar o mouse */
+}
+
+.container-servico .card:hover img {
+    transform: scale(1.05); /* Aumenta ligeiramente a imagem no hover (opcional) */
+}
+
+

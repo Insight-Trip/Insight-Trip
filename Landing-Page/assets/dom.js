@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () =>{
             imageCover.src = listaImagens[posicaoImagem];
 
             if(posicaoImagem == 0){
-                textCover.classList.remove('second');
-                imageCover.classList.remove('second');
-                navbar.classList.remove('second');
+                textCover.classList.remove('third');
+                imageCover.classList.remove('third');
+                navbar.classList.remove('third');
             }
 
 

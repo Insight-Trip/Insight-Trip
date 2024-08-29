@@ -1,45 +1,43 @@
 //Função para sombra na navbar no momento do scroll
-window.addEventListener('scroll', function () {
+function adicionarSombraNaNavbar() {
     let navbar = document.querySelector('.navbar');
 
-    if (this.window.scrollY > 0) {
+    if (window.scrollY > 0) {
         navbar.classList.add('shadow');
     } else {
         navbar.classList.remove('shadow');
     }
-});
+}
 
-//Função para animação do nome InsightTrip da home com o scroll
 let endPosition = window.scrollY;
 
-document.addEventListener('scroll', function(){
+//Função para animação do nome InsightTrip da home com o scroll
+function animarTextoInsightTrip() {
     const text = document.querySelector('#insghtTrip-TextCover');
-
     const scrollY = window.scrollY;
 
     console.log(scrollY);
 
     let top = parseInt(window.getComputedStyle(text).top, 10);
 
-        if (isNaN(top)) top = 0;
+    if (isNaN(top)) top = 0;
 
-    if(scrollY > endPosition){
-        if(top < 409){
+    if (scrollY > endPosition) {
+        if (top < 409) {
             text.style.top = `${top + 100}px`;
         }
-    }else{
-        if(top >= 110)
-        text.style.top = `${top - 100}px`;
+    } else {
+        if (top >= 110)
+            text.style.top = `${top - 100}px`;
     }
 
-        console.log(top)
+    console.log(top);
 
-        endPosition = scrollY;
-
-})
+    endPosition = scrollY;
+}
 
 //Função para troca de imagens de tempos em tempos
-document.addEventListener('DOMContentLoaded', () =>{
+function inicializarTrocaDeImagens(tempoTroca) {
     const imageCover = document.getElementById('imageCover');
     const textCover = document.querySelector('#insghtTrip-TextCover');
     const listaImagens = ["assets/Images/tree-ocean.png",  "assets/Images/mar-sol.png", "assets/Images/mountain.png"]
@@ -69,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 navbar.classList.add('second');
             }
 
-            if(posicaoImagem == 3){
+            if(posicaoImagem == 2){
 
                 textCover.classList.remove('second');
                 imageCover.classList.remove('second');
@@ -94,5 +92,17 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     }
 
-    setInterval(changeImage, 5000);
-})
+    setInterval(changeImage, tempoTroca);
+}
+
+
+
+
+//Chamada das funções 
+window.addEventListener('scroll', function () {
+    adicionarSombraNaNavbar();
+});
+
+document.addEventListener('scroll', animarTextoInsightTrip);
+
+document.addEventListener('DOMContentLoaded', inicializarTrocaDeImagens(5000));

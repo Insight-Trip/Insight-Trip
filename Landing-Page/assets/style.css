@@ -305,6 +305,63 @@ section {
     border-radius: 12px;
 }
 
+.container-como-funciona {
+    /* TAMANHO */
+    width: 100%;
+
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-como-funciona .area-img-winframe {
+    /* TAMANHO */
+    width: 50%;
+}
+
+.container-como-funciona .area-img-winframe img {
+    /* TAMANHO */
+    width: 100%;
+}
+
+.container-como-funciona .area-desc {
+    /* TAMANHO */
+    width: 50%;
+}
+
+.container-como-funciona .area-desc .card-desc {
+    /* TAMANHO */
+    width: 30%;
+
+    /* FONTE */
+    font-family: var(--titulos);
+    font-size: 23px;
+
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    text-align: center;
+
+    /* CORES */
+    color: #ffff;
+    background-color: var(--blue-primary-bigFont);
+
+    /* ESPAÇAMENTO */
+    border-radius: 8px;
+    
+}
+
+.container-como-funciona .area-desc .desc {
+    /* TAMANHO */
+    width: 50%;
+
+    /* FONTE */
+    font-family: var(--textos);
+    font-size: 18px;
+
+    /* CORES */
+    color: var(--blue-primary);
+}
+
+
 .container-servico {
     /* TAMANHO */
     width: 100%;

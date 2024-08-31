@@ -15,6 +15,18 @@
     --textos: 'Abel', sans-serif;
 }
 
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
 body {
     /* ESPAÇAMENTO */
     margin: 0px;
@@ -32,7 +44,13 @@ section {
 
     /* ESPAÇAMENTO */
     margin-bottom: 30px;
+
+    /* ANIMAÇÃO */
+    
+
 }
+
+
 
 /*======================================================ESTILIZAÇÃO NAVBAR====================================================*/
 
@@ -125,6 +143,12 @@ section {
 
 /*======================================================FIM ESTILIZAÇÃO NAVBAR====================================================*/
 
+.appear {
+    animation: appear 1s ease;
+    animation-timeline: scroll();
+    animation-range: entry 0 cover 30%;
+}
+
 .container-display {
     /* TAMANHO */
     width: 100%;
@@ -200,9 +224,29 @@ section {
     opacity: 1;
 }
 
+.area-img-inicio .background-cover {
+    display: none;
+}
+
+.background-cover.third {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    display: block;
+}
+
 .image-cover.second {
     /* ORGANIZAÇÃO DOS ELEMENTOS */
     top: 0;
+}
+
+.image-cover.third {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
 }
 
 .area-img-inicio img.fade-out {
@@ -240,8 +284,6 @@ section {
     display: flex;
     justify-content: space-between;
 
-    /* ESPAÇAMENTO */
-    padding-left: 15px;
 }
 
 .container-sobre .box-top-sobre .area-map-image {
@@ -264,6 +306,8 @@ section {
 
     /* TAMANHO */
     width: 32%;
+
+    padding-left: 20px;
 }
 
 .container-sobre .area-cards {
@@ -490,3 +534,221 @@ section {
     /* ORGANIZAÇÃO DOS ELEMENTOS */
     transform: scale(1.05); /* Aumenta ligeiramente a imagem no hover (opcional) */
 }
+
+#contato{
+    /*TAMANHO*/    
+    height: 100vh;
+
+    /*ORGANIZAÇÃO DOS ELEMENTOS*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-contato {
+    /* TAMANHO */
+    width: 100%;
+
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    justify-content: space-around;
+
+    
+}
+
+.container-contato .area-form-contato {
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* TAMANHO */
+    width: 50%;
+}   
+
+.container-contato .area-form-contato form {
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 73%;
+    height: 100%;
+}
+
+.container-contato .area-form-contato form p {
+    /* FONTE */
+    font-family: var(--titulos);
+    font-size: 23px;
+
+    /* CORES */
+    color: var(--orange-primary);
+}
+
+.container-contato .area-form-contato form .area-input {
+    /* TAMANHO */
+    width: 100%;
+
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    flex-direction: column;
+}
+
+.container-contato .area-form-contato form input {
+    /* TAMANHO */
+    width: 100%;
+
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    border: none;
+    border-bottom: 1px solid var(--orange-primary);
+    background-color: transparent;
+}
+
+.container-contato .area-form-contato form input:focus {
+    outline: none;
+}
+
+.container-contato .area-form-contato form input::placeholder {
+    /* FONTE */
+    font-family: var(--textos);
+    font-size: 18px;
+
+    /* CORES */
+    color: var(--orange-primary);
+}
+
+.container-contato .area-form-contato form textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid var(--orange-primary);
+    background-color: transparent;
+    resize: none;
+    border-radius: 12px;
+}
+
+.container-contato .area-form-contato form textarea::placeholder {
+    font-family: var(--textos);
+    font-size: 18px;
+    color: var(--orange-primary);
+}
+
+.container-contato .area-form-contato form textarea:focus {
+    outline: none;
+}
+
+.container-contato .area-form-contato form button {
+    /* FONTE */
+    font-family: var(--titulos);
+    font-size: 23px;
+
+    /* CORES */
+    color: var(--orange-primary);
+}
+
+.container-contato .area-form-contato form button:hover {
+    /* CORES */
+    color: var(--blue-primary);
+}
+
+.container-contato .area-desc-contato {
+    /* FONTE */
+    font-family: var(--titulos);
+    font-size: 40px;
+   font-weight: 100;
+
+    /* ORGANIZAÇÃO DOS ELEMENTOS */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* CORES */
+    color: var(--orange-primary);
+
+    /* TAMANHO */
+    width: 30%;
+}
+
+.container-contato .area-desc-contato p {
+    /* FONTE */
+    font-family: var(--textos);
+    font-size: 20px;
+    width: 70%;
+
+    /* CORES */
+    color: var(--orange-primary);
+}
+
+
+/*======================================================ESTILIZAÇÃO FOOTER====================================================*/
+
+footer{
+    /*TAMANHO*/
+    width: 100%;
+    height: 200px;
+
+    /*ORGANIZAÇÃO DOS ELEMENTOS*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*CORES*/
+    background-color: var(--orange-primary);
+}
+
+.container-footer{
+    /*TAMANHO*/
+    width: 100%;
+    height: 100%;
+
+    /*ORGANIZAÇÃO DOS ELEMENTOS*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    color: #ffff;
+}
+
+.social-media{
+    /*ORGANIZAÇÃO DOS ELEMENTOS*/
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-media a{
+    /*FONTE*/
+    font-family: var(--titulos);
+    font-size: 23px;
+
+    /*CORES*/
+    color: #ffff;
+
+    /*ORGANIZAÇÃO DOS ELEMENTOS*/
+    text-decoration: none;
+}
+
+.social-media a:hover{
+    /*CORES*/
+    color: var(--blue-primary);
+
+}
+
+.contact-info{
+    /*ORGANIZAÇÃO DOS ELEMENTOS*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info p{
+    /*FONTE*/
+    font-family: var(--textos);
+    font-size: 18px;
+}
+
+.copyright{
+    /*FONTE*/
+    font-family: var(--textos);
+    font-size: 18px;
+}
+
+    

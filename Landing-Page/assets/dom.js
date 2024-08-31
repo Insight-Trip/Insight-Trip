@@ -1,3 +1,10 @@
+let posicaoDaTela = 0;
+
+function atualizarPosicaoDaTela(){
+
+    posicaoDaTela = window.scrollY;
+}
+
 //Função para sombra na navbar no momento do scroll
 function adicionarSombraNaNavbar() {
     let navbar = document.querySelector('.navbar');
@@ -38,63 +45,95 @@ function animarTextoInsightTrip() {
 
 //Função para troca de imagens de tempos em tempos
 function inicializarTrocaDeImagens(tempoTroca) {
+
     const imageCover = document.getElementById('imageCover');
     const textCover = document.querySelector('#insghtTrip-TextCover');
-    const listaImagens = ["assets/Images/tree-ocean.png",  "assets/Images/mar-sol.png", "assets/Images/mountain.png"]
+    const listaImagens = ["assets/Images/tree-ocean.png", "assets/Images/mar-sol.png", "assets/Images/mountain.png"]
     const navbar = document.querySelector('.navbar');
+    const backgroundCover = document.querySelector('.background-cover');
     let posicaoImagem = 0;
+    let intervalId = null;
 
-    function changeImage(){
+
+    function changeImage() {
+
+        console.log("Posição da tela: " + window.scrollY)
+
+
         imageCover.classList.add('fade-out');
 
         console.log(listaImagens[posicaoImagem])
         console.log(posicaoImagem)
 
-        setTimeout(() =>{
+        setTimeout(() => {
             posicaoImagem = (posicaoImagem + 1) % listaImagens.length;
             imageCover.src = listaImagens[posicaoImagem];
 
-            if(posicaoImagem == 0){
+            if (posicaoImagem == 0) {
                 textCover.classList.remove('third');
                 imageCover.classList.remove('third');
                 navbar.classList.remove('third');
+                backgroundCover.classList.remove('third');
             }
 
 
-            if(posicaoImagem == 1){
+            if (posicaoImagem == 1) {
                 textCover.classList.add('second');
                 imageCover.classList.add('second');
                 navbar.classList.add('second');
             }
 
-            if(posicaoImagem == 2){
+            if (posicaoImagem == 2) {
 
                 textCover.classList.remove('second');
                 imageCover.classList.remove('second');
                 navbar.classList.remove('second')
-                
+
                 textCover.classList.add('third');
                 imageCover.classList.add('third');
                 navbar.classList.add('third');
+
+                backgroundCover.classList.add('third');
             }
 
-            imageCover.addEventListener('load', () =>{
+            imageCover.addEventListener('load', () => {
                 imageCover.classList.remove('fade-out');
                 imageCover.classList.add('fade-in');
 
-                if(imageCover)
+                if (imageCover)
 
-                setTimeout(() =>{
-                    imageCover.classList.remove('fade-in');
-                }, 1000);
+                    setTimeout(() => {
+                        imageCover.classList.remove('fade-in');
+                    }, 1000);
             })
         }, 1000);
 
     }
 
-    setInterval(changeImage, tempoTroca);
+    function verificarVisibilidade() {
+        const rect = imageCover.getBoundingClientRect();
+        const estaVisivel = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (estaVisivel && !intervalId) {
+            intervalId = setInterval(changeImage, tempoTroca);
+        } else if (!estaVisivel && intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    }
+
+    window.addEventListener('scroll', verificarVisibilidade);
+    window.addEventListener('resize', verificarVisibilidade);
+
+    verificarVisibilidade();
+
+
 }
 
+//Função para animação de aparecimento dos elementos da página
+function animarElementos() {
+
+}
 
 
 
@@ -105,4 +144,8 @@ window.addEventListener('scroll', function () {
 
 document.addEventListener('scroll', animarTextoInsightTrip);
 
-document.addEventListener('DOMContentLoaded', inicializarTrocaDeImagens(5000));
+if(window.scrollY < 500){
+    document.addEventListener('DOMContentLoaded', () => inicializarTrocaDeImagens(5000));
+}
+
+document.addEventListener('scroll', animarElementos);

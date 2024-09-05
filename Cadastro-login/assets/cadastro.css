@@ -1,7 +1,7 @@
-*{
+* {
     /*Espaçamento*/
-    margin: 0px;
     padding: 0px;
+    margin: 0px;
     /*Detalhes*/
     overflow: hidden;
 }
@@ -13,42 +13,32 @@
     /*Organização de elementos filhos*/
     display: flex;
     justify-content: space-between;
-    /*Borda*/
-    border: 2px solid black;
 }
 
-.container-foto{
-    /*Tamanho*/
-    width: 45%;
-    height: 100%;
-    /*Detalhes*/
-    background-image: url("./images/loginImage.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
-.container-login{
+.container-cadastro{
     /*Tamanho*/
     width: 55%;
     height: 100%;
-    /*Organiazação de elementos filhos*/
+    /*Organização de elementos filhos*/
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.caixa-login{
+.caixa-cadastro{
     /*Tamanho*/
     width: 70%;
-    height: 70%;
+    height: 80%;
     /*Organização de elementos filhos*/
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    /*Detalhes*/
+    overflow: visible;
 }
 
-.logo{
+.logo {
     /*Tamanho*/
     width: 30%;
 }
@@ -56,37 +46,39 @@
 .caixa-inputs{
     /*Tamanho*/
     width: 100%;
-    height: 25%;
+    height: 40%;
     /*Organização de elementos filhos*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /*Detalhes*/
+    overflow: visible;
 }
 
 .input{
     /*Tamanho*/
-    height: 35%;
+    height: 15%;
     /*Espaçamento*/
-    padding-left: 10px;
-    /*borda*/
-    border: 2px solid #B5D0DB;
+    padding-left: 7px;
+    /*Borda*/
+    border: 2px solid #EBA868;
     border-radius: 10px;
 }
 
 .caixa-botao{
     /*Tamanho*/
     width: 100%;
-    height: 25%;
+    height: 20%;
     /*Organização de elementos filhos*/
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 7px;
     /*Cor*/
-    color: #B5D0DB;
+    color: #EBA868;
 }
 
-.botao-entrar{
+.botao-cadastrar{
     /*Tamanho*/
     width: 100%;
     height: 35%;
@@ -94,47 +86,46 @@
     border: none;
     border-radius: 10px;
     /*Cor*/
-    background-color: #B5D0DB;
+    background-color: #EBA868;
     color: #fff;
     /*Detalhes*/
     cursor: pointer;
 }
 
-.link-cadastro{
+.link-login{
     /*Texto*/
     text-decoration: underline;
-    color: #638EA0;
+    color: #DC7B1F;
     /*Detalhes*/
     cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
-    *{
-        /*Fonte*/
-        font-size: 20px;
-    }
+.container-foto{
+    /*Tamanho*/
+    width: 45%;
+    height: 100%;
+    /*Detalhes*/
+    background-image: url("./images/CaadastroImage.png");
+    background-size: 100%;
+}
 
+@media only screen and (max-width: 600px) {
     .container-content{
         /*Organização de elementos filhos*/
         display: block;
     }
 
-    .container-foto{
-        /*Comportamento*/
-        display: none;
-    }
-
-    .container-login{
+    .container-cadastro{
         /*Tamanho*/
         width: 100%;
     }
 
-    .caixa-login{
+    .caixa-cadastro{
         /*Tamanho*/
         width: 90%;
-        height: 75%;
+        height: 80%;
     }
-    
+
     .logo{
         /*Tamanho*/
         width: 60%;
@@ -144,4 +135,10 @@
         /*Organização de elementos filhos*/
         gap: 10px;
     }
+
+    .container-foto{
+        /*Comportamento*/
+        display: none;
+    }
 }
+

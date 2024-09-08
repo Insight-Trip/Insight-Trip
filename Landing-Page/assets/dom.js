@@ -1,19 +1,14 @@
 let posicaoDaTela = 0;
 
-function atualizarPosicaoDaTela(){
+function atualizarPosicaoDaTela() {
 
     posicaoDaTela = window.scrollY;
 }
 
 //Função para sombra na navbar no momento do scroll
 function adicionarSombraNaNavbar() {
-    let navbar = document.querySelector('.navbar');
-
-    if (window.scrollY > 0) {
-        navbar.classList.add('shadow');
-    } else {
-        navbar.classList.remove('shadow');
-    }
+    let areaNavbar = document.querySelector('.area-navbar'); // Alterei para a div.area-navbar para preencher a tela horizontalmente
+    areaNavbar.classList.toggle('shadow', window.scrollY > 450)
 }
 
 let endPosition = window.scrollY;
@@ -144,7 +139,7 @@ window.addEventListener('scroll', function () {
 
 document.addEventListener('scroll', animarTextoInsightTrip);
 
-if(window.scrollY < 500){
+if (window.scrollY < 500) {
     document.addEventListener('DOMContentLoaded', () => inicializarTrocaDeImagens(5000));
 }
 

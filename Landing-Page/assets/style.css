@@ -430,7 +430,7 @@ section {
 
     /* FONTE */
     font-family: var(--textos);
-    font-size: 18px;
+    font-size: 25px;
 
     /* CORES */
     color: var(--blue-primary);
@@ -752,12 +752,14 @@ footer {
     /*ORGANIZAÇÃO DOS ELEMENTOS*/
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .social-media a {
     /*FONTE*/
     font-family: var(--titulos);
     font-size: 23px;
+    margin: 15px;
 
     /*CORES*/
     color: #ffff;

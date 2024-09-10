@@ -5,16 +5,22 @@ function atualizarPosicaoDaTela() {
     posicaoDaTela = window.scrollY;
 }
 
-//Função para sombra na navbar no momento do scroll
-function adicionarSombraNaNavbar() {
-    let areaNavbar = document.querySelector('.area-navbar'); // Alterei para a div.area-navbar para preencher a tela horizontalmente
-    areaNavbar.classList.toggle('shadow', window.scrollY > 450)
-}
+// //Função para sombra na navbar no momento do scroll
+// function adicionarSombraNaNavbar() {
+//     let areaNavbar = document.querySelector('.area-navbar'); // Alterei para a div.area-navbar para preencher a tela horizontalmente
+//     areaNavbar.classList.toggle('shadow', window.scrollY > 450)
+// }
 
 let endPosition = window.scrollY;
 
 //Função para animação do nome InsightTrip da home com o scroll
 function animarTextoInsightTrip() {
+    const limit = endPosition;
+
+    if(endPosition < limit){
+        return;
+    }
+
     const text = document.querySelector('#insghtTrip-TextCover');
     const scrollY = window.scrollY;
 
@@ -29,13 +35,17 @@ function animarTextoInsightTrip() {
             text.style.top = `${top + 100}px`;
         }
     } else {
-        if (top >= 110)
+        if (top >= 110){
             text.style.top = `${top - 100}px`;
+        }
+            
     }
 
-    console.log(top);
+    console.log("Aqui está o top", top);
+    console.log("Aqui está o endPosition", endPosition)
 
     endPosition = scrollY;
+
 }
 
 //Função para troca de imagens de tempos em tempos
@@ -46,6 +56,8 @@ function inicializarTrocaDeImagens(tempoTroca) {
     const listaImagens = ["assets/Images/tree-ocean.png", "assets/Images/mar-sol.png", "assets/Images/mountain.png"]
     const navbar = document.querySelector('.navbar');
     const backgroundCover = document.querySelector('.background-cover');
+    const areaNavbar = document.querySelector('.area-navbar.shadow')
+    const imgLogo = document.querySelector('.img-logo-img')
     let posicaoImagem = 0;
     let intervalId = null;
 
@@ -69,6 +81,13 @@ function inicializarTrocaDeImagens(tempoTroca) {
                 imageCover.classList.remove('third');
                 navbar.classList.remove('third');
                 backgroundCover.classList.remove('third');
+                areaNavbar.classList.remove('third')
+                try{
+                    imgLogo.src = "assets/Images/logo-city.png"
+                }
+                catch{
+                    console.log("Erro ao mudar imagem");
+                }
             }
 
 
@@ -76,6 +95,15 @@ function inicializarTrocaDeImagens(tempoTroca) {
                 textCover.classList.add('second');
                 imageCover.classList.add('second');
                 navbar.classList.add('second');
+                areaNavbar.classList.add('second');
+                try{
+                    imgLogo.src = "assets/Images/logo-mountains.png"
+                }
+                catch{
+                    console.log("Erro ao mudar imagem")
+                }
+                
+                
             }
 
             if (posicaoImagem == 2) {
@@ -83,12 +111,21 @@ function inicializarTrocaDeImagens(tempoTroca) {
                 textCover.classList.remove('second');
                 imageCover.classList.remove('second');
                 navbar.classList.remove('second')
+                areaNavbar.classList.remove('second')
 
                 textCover.classList.add('third');
                 imageCover.classList.add('third');
                 navbar.classList.add('third');
+                areaNavbar.classList.add('third');
 
                 backgroundCover.classList.add('third');
+
+                try{
+                    imgLogo.src = "assets/Images/logo-snow.png"
+                }
+                catch{
+                    console.log("Erro ao mudar imagem")
+                }
             }
 
             imageCover.addEventListener('load', () => {
@@ -132,10 +169,10 @@ function animarElementos() {
 
 
 
-//Chamada das funções 
-window.addEventListener('scroll', function () {
-    adicionarSombraNaNavbar();
-});
+// //Chamada das funções 
+// window.addEventListener('scroll', function () {
+//     adicionarSombraNaNavbar();
+// });
 
 document.addEventListener('scroll', animarTextoInsightTrip);
 

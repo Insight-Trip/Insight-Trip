@@ -410,7 +410,7 @@ section {
 
 .container-como-funciona .area-desc .desc {
     /* TAMANHO */
-    width: 50%;
+    width: 80%;
 
     /* FONTE */
     font-family: var(--textos);

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body style="background-color: black;" id="body">
+    <h1 style="color: white;">Vai Corithians 🦅🦅</h1>
+</body>
+</html>
+
+<body onload="teste()"></body>
+
+<script>
+    function teste() {
+        console.log(sessionStorage.EMAIL_USUARIO)
+        console.log(sessionStorage.NOME_USUARIO)
+
+        body.innerHTML += `<h2 style="color: white;">Bem-vindo ${sessionStorage.NOME_USUARIO}!</h2>`
+    }
+</script>

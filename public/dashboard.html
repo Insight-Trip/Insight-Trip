@@ -7,12 +7,20 @@
     <title>Insight Trip | dashboard</title>
     <link rel="stylesheet" href="assets/mapin.css">
     <link rel="stylesheet" href="assets/dashboard.css">
+    <link rel="icon" href="assets/Images/logo-snow.png">
 </head>
 
-<body onload="teste()">
-    <div class="sidebar">
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="toggle-btn" id="sidebarToggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
         <div class="area-logo">
-            <p>Insight Trip</p>
+            <img src="assets/Images/logo-snow.png" alt="Logo" class="logo-icon">
+            <p class="logo-text">Insight Trip</p>
         </div>
         <div class="menu-sidebar">
             <div class="card-navbar navbar-card-dashboard activate">
@@ -96,6 +104,11 @@
             </div>
         </div>
 
+        <label id="theme-switch">
+            <input type="checkbox">
+            Alternar tema
+        </label>
+
 
         <div class="box-sidebar-next-event">
             <div class="area-desc-next-event">
@@ -109,9 +122,9 @@
             </div>
         </div>
     </div>
-
-
     <!-- Fim da sidebar -->
+
+
     <div class="display-dashboard">
         <div class="header-map-acess"></div>
         <div class="area-cards-resume">
@@ -222,8 +235,70 @@
                 </button>
             </div>
         </div>
-    </div>
 
+        <div class="dropdown-filter">
+            <div class="filter-field">
+                <label for="periodo-climatico">Período Climático:</label>
+                <select id="periodo-climatico">
+                    <option value="proximo-semestre">Próximo semestre</option>
+                    <option value="proximos-2-anos">Próximos 2 anos</option>
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label for="eventos-sazonais">Eventos Sazonais:</label>
+                <select id="eventos-sazonais">
+                    <option value="proximo-semestre">Próximo semestre</option>
+                    <option value="proximos-2-anos">Próximos 2 anos</option>
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label for="periodo-personalizado">Período Personalizado:</label>
+                <div class="date-range-picker">
+                    <input type="date" id="data-inicio" name="data-inicio">
+                    <span>até</span>
+                    <input type="date" id="data-fim" name="data-fim">
+                </div>
+            </div>
+
+            <div class="filter-field">
+                <label for="origem">Origem:</label>
+                <select id="origem">
+                    <option value="">Selecione um estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+            <button class="button-filter" id="buttonFilter">filtrar</button>
+        </div>
+
+    </div>
 </body>
 
 <script src="assets/dashboard_dom.js"></script>

@@ -22,6 +22,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    background-color: var(--background-interface);
 }
 
 .sidebar {
@@ -44,12 +45,80 @@ body {
 
     background: var(--blue-white-elements);
     border-right: 1px solid rgba(197, 197, 197, 0.5);
+    transition: width 0.3s ease;
+}
+
+.sidebar.retracted {
+    width: 60px;
+    /* Ajuste conforme necessário */
+}
+
+.toggle-btn {
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    /* Garante que o botão fique acima de outros elementos */
+}
+
+.area-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Esconde o conteúdo que ultrapassar as dimensões */
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.logo-text {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar.retracted .area-logo {
+    width: 0;
+    opacity: 0;
+}
+
+.sidebar.retracted .logo-icon,
+.sidebar.retracted .logo-text {
+    display: none;
+}
+
+.sidebar.retracted .card-navbar p {
+    opacity: 0;
+    transform: translateX(-20px);
+
+}
+
+.card-navbar {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sidebar.retracted .card-navbar {
+    justify-content: center;
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.sidebar.retracted .box-sidebar-next-event {
+    display: none;
 }
 
 .sidebar .area-logo {
+    display: flex;
     font-family: var(--titulos);
     width: 100%;
     color: var(--orange-primary);
+    justify-content: space-around;
 }
 
 .sidebar .area-logo p {
@@ -58,6 +127,7 @@ body {
 }
 
 .menu-sidebar {
+    position: relative;
     font-family: var(--principal);
     font-weight: 500;
     display: flex;
@@ -66,34 +136,86 @@ body {
     /* Reduzido de 100% para 95% */
 }
 
+.menu-sidebar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* Ajuste conforme necessário */
+    background-color: var(--gray-elements);
+    border-radius: 6px;
+    transition: top 0.3s ease;
+    z-index: 0;
+}
+
 .menu-sidebar .card-navbar {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
     display: flex;
     align-items: center;
     width: 95%;
-    /* Reduzido de 100% para 95% */
+
     gap: 5px;
     padding-left: 8px;
-    /* Reduzido de 10px para 8px */
+
     border-radius: 6px;
-    /* Reduzido de 8px para 6px */
+
     margin-bottom: 5px;
-    /* Adicionado espaçamento entre os cards */
+
+    color: var(--color-principal-text);
 }
 
 .menu-sidebar .card-navbar.activate {
-    background-color: var(--gray-elements);
+    background-color: transparent;
+    color: var(--color-principal-text);
 }
 
-.menu-sidebar .card-navbar p {
-    color: var(--color-principal-text);
-    font-size: 0.9em;
-    /* Reduzido o tamanho da fonte */
+@keyframes moveSelector {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Classes para posicionar o seletor */
+.menu-sidebar.select-dashboard::before {
+    top: 5px;
+}
+
+.menu-sidebar.select-funcionarios::before {
+    top: 64px;
+}
+
+/* Ajuste conforme necessário */
+.menu-sidebar.select-ia::before {
+    top: 117px;
+}
+
+/* Ajuste conforme necessário */
+.menu-sidebar.select-mapa::before {
+    top: 173px;
+}
+
+/* Ajuste conforme necessário */
+.menu-sidebar.select-buscar-destinos::before {
+    top: 229px;
+}
+
+/* Ajuste conforme necessário */
+
+.menu-sidebar::before {
+    animation: moveSelector 0.3s ease-out;
 }
 
 .box-sidebar-next-event {
     margin-top: auto;
     font-family: var(--principal);
-    background-color: #ffff;
+    background-color: var(--background-interface);
     width: 100%;
     height: 175px;
     border: solid 2px var(--gray-elements);
@@ -105,6 +227,7 @@ body {
     width: 95%;
     border-bottom: solid 1px var(--gray-elements);
     padding-left: 12px;
+    color: var(--color-principal-text);
 }
 
 .area-desc-next-event .desc {
@@ -136,6 +259,8 @@ body {
     border: solid 2px var(--gray-elements);
     background-color: transparent;
     border-radius: 12px;
+    color: var(--color-principal-text);
+    cursor: pointer;
 }
 
 .display-dashboard {
@@ -149,8 +274,9 @@ body {
 
 .display-dashboard .area-cards-resume {
     display: flex;
-    width: 100%;
-    padding: 20px;
+    width: 90%;
+    padding-top: 20px;
+    padding-left: 20px;
     gap: 30px;
 }
 
@@ -171,22 +297,22 @@ body {
     flex-direction: column;
 }
 
-.card-resume .area-info-card .area-value-resume p{
+.card-resume .area-info-card .area-value-resume p {
     margin: 0;
     margin-bottom: 2px;
     padding: 0;
     font-size: 17px;
-    
+
     font-weight: 500;
 }
 
-.card-resume .area-info-card .desc-resume{
+.card-resume .area-info-card .desc-resume {
     margin: 0;
     padding: 0;
     font-size: 10px;
 }
 
-.card-resume .area-icon-card{
+.card-resume .area-icon-card {
     border-radius: 50%;
     width: 24%;
     height: 100%;
@@ -195,62 +321,130 @@ body {
     justify-content: center;
 }
 
-.card-resume.events{
+.card-resume.events {
     color: var(--dark-blue-elements);
     border: solid 1px var(--blue-primary-bigFont);
 }
 
-.card.resume.events .area-info-card .area-value-resume p{
+.card-resume.events .area-info-card .area-value-resume p {
     color: var(--dark-blue-elements);
 }
 
-.card-resume.events .area-icon-card{
+.card-resume.events .area-icon-card {
     background-color: var(--blue-primary-bigFont);
 }
 
-.card-resume.main{
+.card-resume.main {
     color: var(--dark-purple-elements);
     border: solid 1px var(--purple-primary-bigFont);
 }
 
-.card-resume.main .area-info-card .area-value-resume p{
+.card-resume.main .area-info-card .area-value-resume p {
     color: var(--dark-purple-elements);
 }
 
-.card-resume.main .area-icon-card{
+.card-resume.main .area-icon-card {
     background-color: var(--purple-primary-bigFont);
 }
 
-.card-resume.demand{
+.card-resume.demand {
     color: var(--orange-primary);
     border: solid 1px var(--orange-primary);
 }
 
-.card-resume.demand .area-infor-card .area-value-resume p{
+.card-resume.demand .area-infor-card .area-value-resume p {
     color: var(--orange-primary);
 }
 
-.card-resume.demand .area-icon-card{
+.card-resume.demand .area-icon-card {
     background-color: var(--orange-primary-bigFont);
 }
 
-.area-dashs{
+.area-dashs {
     padding: 20px;
 }
 
-.area.dashs .area-filter{
+.area.dashs .area-filter {
     width: 100%;
 }
 
-.area-dashs .area-filter button{
+.area-dashs .area-filter button {
     border: solid 1px var(--gray-elements);
     border-radius: 5px;
     width: 54px;
-    background-color: #ffff;
+    background-color: var(--background-interface);
     color: var(--color-principal-text);
     font-size: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 
+}
+
+.dropdown-filter {
+    display: none;
+    font-family: var(--principal);
+    background-color: var(--background-interface);
+    border: 1px solid var(--gray-elements);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-filter.activate {
+    display: block;
+}
+
+.filter-field {
+    margin-bottom: 15px;
+}
+
+.filter-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--color-principal-text);
+}
+
+.filter-field select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--gray-elements);
+    border-radius: 5px;
+    background-color: var(--blue-white-elements);
+    color: var(--color-principal-text);
+    font-size: 14px;
+}
+
+.filter-field select:focus {
+    outline: none;
+    border-color: var(--blue-primary);
+}
+
+/* Estilo para o último campo de filtro (sem margem inferior) */
+.filter-field:last-child {
+    margin-bottom: 0;
+}
+
+.date-range-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-range-picker input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-filter {
+    width: 100%;
+    border: solid 2px var(--gray-elements);
+    background-color: transparent;
+    border-radius: 12px;
+    color: var(--color-principal-text);
+    cursor: pointer;
 }

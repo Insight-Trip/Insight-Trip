@@ -19,14 +19,30 @@
     --purple-primary-bigFont: rgba(226, 224, 255, 1);
     --dark-purple-elements: #37287f;
     --orange-primary-bigFont: rgba(236, 167, 105, 0.48);
-
+    --background-interface: #FFFFFF;
 
     /* FONTES */
     --titulos: 'Bebas Neue', sans-serif;
     --textos: 'Abel', sans-serif;
     --principal: 'Inter', sans-serif;
 
-    --blue-white-elements: #F9FBFC
+    --blue-white-elements: #F9FBFC;
+}
+
+[data-theme="dark"] {
+    --blue-primary-bigFont: #1A2A33;
+    --blue-primary: #2C4A5A;
+    --blue-primary-hover: #3A5F73;
+    --orange-primary: #B37A3D;
+    --color-principal-text: #E0E0E0;
+    --gray-elements: rgba(58, 58, 58, 0.2);
+    --dark-blue: #1E2A4A;
+    --dark-blue-elements: rgba(0, 70, 135, 1);
+    --purple-primary-bigFont: rgba(50, 48, 79, 1);
+    --dark-purple-elements: #241B54;
+    --orange-primary-bigFont: rgba(165, 96, 34, 0.48);
+    --background-interface: #121212;
+    --blue-white-elements: #0A0F14;
 }
 
 @keyframes appear {

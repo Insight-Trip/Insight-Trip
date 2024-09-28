@@ -1,0 +1,173 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: var(--background-interface);
+}
+
+.display-funcionarios{
+    flex-grow: 1;
+    padding-top: 25px;
+}
+
+.area-cards-resume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+    gap: 30px;
+}
+
+
+.card-resume {
+    font-family: var(--principal);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 15px;
+    height: 50px;
+    width: 19%;
+    gap: 15px;
+}
+
+.card-resume .area-info-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.card-resume.vendas .area-info-card{
+    color: var(--dark-blue-elements);
+}
+
+.card-resume .area-info-card .area-value-resume p {
+    margin: 0;
+    margin-bottom: 2px;
+    padding: 0;
+    font-size: 20px;
+
+    font-weight: 500;
+}
+
+.card-resume .area-info-card .desc-resume {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+.card-resume .area-icon-card {
+    border-radius: 50%;
+    width: 22%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.card-resume.vendas{
+    border: solid 1px var(--dark-blue-elements);
+}
+
+.card-resume.marketing{
+    border: solid 1px var(--orange-primary);
+}
+
+.card-resume.macro{
+    border: solid 1px var(--dark-purple-elements);
+}
+
+.card-resume.vendas .area-info-card {
+    color: var(--dark-blue-elements);
+}
+
+.card-resume.marketing .area-info-card {
+    color: var(--orange-primary);
+}
+.card-resume.macro .area-info-card{
+    color: var(--dark-purple-elements);
+}
+
+.card-resume.vendas .area-icon-card{
+    background-color: var(--blue-focus);
+}
+.card-resume.marketing .area-icon-card{
+    background-color: var(--orange-primary-bigFont);
+}
+
+.card-resume.macro .area-icon-card{
+    background-color: var(--purple-primary-bigFont);
+}
+
+.container-info-funcionario{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 35px;
+    gap: 30px;
+    height: 100%;
+
+
+}
+
+.area-card-funcionario{
+    width: 60%;
+}
+
+.card-funcionario{
+    font-family: var(--principal);
+    display: flex;
+    width: 100%;
+    border: solid 1px var(--color-principal-text);
+    height: 58px;
+    border-radius: 12px;
+    padding: 12px;
+    align-items: center;
+}
+
+.area-info-funcionario{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.box-img-funcionario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag-funcionario{
+    margin-left: 20px;
+        font-size: 12px;
+        height: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 65px;
+        border-radius: 5px;
+}
+
+.tag-funcionario.marketing{
+    background-color: var(--orange-primary-bigFont);
+    color: var(--orange-primary);
+}
+
+.tag-funcionario.vendas{
+    background-color: var(--blue-focus);
+    color: var(--dark-blue-elements);
+}
+
+.tag-funcionario.macro{
+    background-color: var(--purple-primary-bigFont);
+    color: var(--dark-purple-elements);
+}
+
+
+

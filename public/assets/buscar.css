@@ -1,0 +1,151 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.display-buscar {
+    flex-grow: 1;
+    padding: 100px;
+}
+
+.area-legend-filter {
+    display: flex;
+    /* Alinha os cards horizontalmente */
+}
+
+.card-legend-filter {
+    border: solid 1px;
+    /* Borda com cor específica */
+    background-color: transparent;
+    padding: 2px;
+    margin-right: 10px;
+    border-radius: 20px;
+    font-family: var(--principal);
+    font-size: 12px;
+    width: 100px;
+    text-align: center;
+}
+
+.card-legend-filter.period {
+    border-color: var(--orange-primary);
+    color: var(--orange-primary);
+}
+
+.card-legend-filter.season {
+    border-color: var(--purple-elements);
+    color: var(--purple-elements);
+}
+
+.card-legend-filter.origin {
+    border-color: var(--dark-blue-elements);
+    color: var(--dark-blue-elements);
+}
+
+.area-result {
+    margin-top: 20px;
+}
+
+.area-result .info {
+    font-family: var(--principal);
+    color: var(--purple-elements);
+    font-size: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.area-result .destino {
+    font-size: 30px;
+    font-weight: 100;
+    font-family: var(--titulos);
+    color: var(--dark-blue);
+    margin: 0;
+    padding: 0;
+
+}
+
+.area-context {
+    display: flex;
+    gap: 5px;
+}
+
+.card-option {
+    display: inline-flex;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    align-items: center;
+    border: solid 1px var(--gray-border);
+    border-radius: 12px;
+    font-family: var(--principal);
+    font-size: 10px;
+    color: var(--color-principal-text);
+    gap: 5px;
+}
+
+
+.calendar-container {
+    margin-top: 10px;
+}
+
+.area-calendar p{
+    font-display: var(--principal);
+    color: var(--color-principal-text);
+}
+
+#dateRange {
+    padding: 10px;
+    border: solid 1px var(--gray-border);
+    border-radius: 5px;
+    font-family: var(--principal);
+    font-size: 12px;
+    width: 200px;
+    font-family: var(--principal);
+}
+
+.flatpickr-day {
+    font-family: var(--principal);
+}
+
+.flatpickr-day.selected.startRange {
+    background-color: var(--orange-primary-bigFont);
+    color: var(--orange-primary);
+    border: solid 1px var(--orange-primary);
+}
+
+.flatpickr-day.selected.startRange:hover {
+    background-color: var(--orange-primary-bigFont);
+    color: var(--orange-primary);
+    border: solid 1px var(--orange-primary);
+}
+
+.flatpickr-day.selected.endRange {
+    background-color: var(--blue-primary-bigFont);
+    color: var(--blue-primary);
+    border: solid 1px var(--blue-primary);
+}
+
+.flatpickr-day.selected.endRange:hover {
+    background-color: var(--blue-primary-bigFont);
+    color: var(--blue-primary);
+    border: solid 1px var(--blue-primary);
+}
+
+.flatpickr-day.inRange {
+    background-color: var(--purple-primary-bigFont);
+}
+
+.flatpickr-weekday {
+    font-family: var(--principal);
+}
+
+.flatpickr-monthDropdown-months{
+    font-family: var(--principal);
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month{
+    font-family: var(--principal);
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months{
+    font-family: var(--principal);
+}

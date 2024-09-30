@@ -30,8 +30,20 @@ body {
 }
 
 .display-dashboard .header-map-acess {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 20vh;
     background-color: var(--blue-primary-bigFont);
+    font-family: var(--titulos);
+    font-size: xx-large;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.display-dashboard .header-map-acess:hover{
+    color: aliceblue;
+    border: solid 1px var(--gray-elements);
 }
 
 .display-dashboard .area-cards-resume {

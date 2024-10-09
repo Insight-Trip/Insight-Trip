@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/sidebar.css">
     <link rel="stylesheet" href="assets/dashboard.css">
     <link rel="icon" href="assets/Images/logo-snow.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -132,7 +133,25 @@
 
 
     <div class="display-dashboard">
-        <div class="header-map-acess">Clique aqui para acessar o mapa</div>
+        <div class="header-map-acess" id="mapAcess">Clique aqui para acessar o mapa</div>
+
+        <!-- ... código anterior ... -->
+
+        <div class="dashboard-navbar">
+            <div class="folder-tab active" data-dashboard="brasil">Brasil</div>
+            <div class="folder-tab" data-dashboard="ac">SP</div>
+            <div class="folder-tab" data-dashboard="al">RJ</div>
+            <div class="folder-tab" data-dashboard="ap">MG</div>
+            <div class="folder-tab" data-dashboard="am">BA</div>
+            <div class="folder-tab" data-dashboard="ba">RS</div>
+            <div class="folder-tab" data-dashboard="ce">PR</div>
+            <div class="folder-tab" data-dashboard="df">SC</div>
+            <div class="folder-tab" data-dashboard="es">PE</div>
+            <div class="folder-tab" data-dashboard="go">DF</div>
+        </div>
+
+        <!-- ... código posterior ... -->
+
         <div class="area-cards-resume">
             <div class="card-resume events">
                 <div class="area-icon-card">
@@ -198,7 +217,7 @@
                     <div class="area-value-resume">
                         <p>12</p>
                     </div>
-                    <p class="desc-resume">Eventos no proximo semestre</p>
+                    <p class="desc-resume">Estados protagonistas do proximo semestre</p>
                 </div>
 
             </div>
@@ -223,7 +242,7 @@
                     <div class="area-value-resume">
                         <p>12</p>
                     </div>
-                    <p class="desc-resume">Eventos no proximo semestre</p>
+                    <p class="desc-resume">Demanda x Segurança do proximo semestre</p>
                 </div>
 
             </div>
@@ -240,69 +259,83 @@
                     </svg>
                 </button>
             </div>
-        </div>
-
-        <div class="dropdown-filter">
-            <div class="filter-field">
-                <label for="periodo-climatico">Período Climático:</label>
-                <select id="periodo-climatico">
-                    <option value="proximo-semestre">Próximo semestre</option>
-                    <option value="proximos-2-anos">Próximos 2 anos</option>
-                </select>
-            </div>
-
-            <div class="filter-field">
-                <label for="eventos-sazonais">Eventos Sazonais:</label>
-                <select id="eventos-sazonais">
-                    <option value="proximo-semestre">Próximo semestre</option>
-                    <option value="proximos-2-anos">Próximos 2 anos</option>
-                </select>
-            </div>
-
-            <div class="filter-field">
-                <label for="periodo-personalizado">Período Personalizado:</label>
-                <div class="date-range-picker">
-                    <input type="date" id="data-inicio" name="data-inicio">
-                    <span>até</span>
-                    <input type="date" id="data-fim" name="data-fim">
+            <div class="dropdown-filter">
+                <div class="filter-field">
+                    <label for="periodo-climatico">Período Climático:</label>
+                    <select id="periodo-climatico">
+                        <option value="proximo-semestre">Próximo semestre</option>
+                        <option value="proximos-2-anos">Próximos 2 anos</option>
+                    </select>
                 </div>
+            
+                <div class="filter-field">
+                    <label for="eventos-sazonais">Eventos Sazonais:</label>
+                    <select id="eventos-sazonais">
+                        <option value="proximo-semestre">Próximo semestre</option>
+                        <option value="proximos-2-anos">Próximos 2 anos</option>
+                    </select>
+                </div>
+            
+                <div class="filter-field">
+                    <label for="periodo-personalizado">Período Personalizado:</label>
+                    <div class="date-range-picker">
+                        <input type="date" id="data-inicio" name="data-inicio">
+                        <span>até</span>
+                        <input type="date" id="data-fim" name="data-fim">
+                    </div>
+                </div>
+            
+                <div class="filter-field">
+                    <label for="origem">Origem:</label>
+                    <select id="origem">
+                        <option value="">Selecione um estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+                <button class="button-filter" id="buttonFilter">filtrar</button>
             </div>
-
-            <div class="filter-field">
-                <label for="origem">Origem:</label>
-                <select id="origem">
-                    <option value="">Selecione um estado</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                </select>
+            <div class="chart-container">
+                <canvas id="safetyIndexChart"></canvas>
             </div>
-            <button class="button-filter" id="buttonFilter">filtrar</button>
+            <div class="chart-container">
+                <canvas id="demandChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="activitiesChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="stateCharacteristicsChart"></canvas>
+            </div>
         </div>
+
+
+
 
     </div>
 </body>

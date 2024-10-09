@@ -30,6 +30,7 @@ body {
 .card-legend-filter.period {
     border-color: var(--orange-primary);
     color: var(--orange-primary);
+    font-size: 8px;
 }
 
 .card-legend-filter.season {
@@ -84,14 +85,22 @@ body {
     gap: 5px;
 }
 
+.container-inputs{
+    display: flex;
+    gap: 4rem;
+    font-family: var(--principal);
+}
+
+
 
 .calendar-container {
     margin-top: 10px;
 }
 
 .area-calendar p{
-    font-display: var(--principal);
     color: var(--color-principal-text);
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #dateRange {
@@ -148,4 +157,51 @@ body {
 }
 .flatpickr-current-month .flatpickr-monthDropdown-months{
     font-family: var(--principal);
+}
+
+.area-clima p{
+    color: var(--color-principal-text);
+    font-size: 12px;
+    font-weight: bold;
+    
+}
+
+.button-clima{
+    background-color: transparent;
+    width: 100px;
+    height: 35px;
+    border: solid 1px var(--gray-border);
+    border-radius: 20px;
+}
+
+.button-clima.activate{
+    background-color: var(--purple-elements);
+    color: var(--background-interface);
+}
+
+.box-filter-clima.activate{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--background-interface);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    grid-auto-flow: 10px;
+    
+}
+
+.area-button-filter{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.area-button-filter button{
+    background-color: var(--background-interface);
+    color: var(--purple-elements);
+    border: none;
+}
+
+.box-filter-clima label{
+    color: var(--color-principal-text);
+    font-size: 13px;
 }

@@ -29,7 +29,98 @@ body {
     flex-grow: 1;
 }
 
+/* ... estilos existentes ... */
+
+.dashboard-navbar {
+    display: flex;
+    background-color: var(--background-interface);
+    border-bottom: 2px solid var(--gray-elements);
+    position: relative;
+    z-index: 1;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.folder-tab {
+    padding: 10px 20px;
+    margin-right: -10px;
+    background-color: var(--background-interface);
+    color: var(--color-principal-text);
+    border: 2px solid var(--gray-elements);
+    border-bottom: none;
+    border-radius: 0px 12px 0 0;
+    cursor: pointer;
+    font-family: var(--principal);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.folder-tab:nth-child(1) {
+    height: 12px;
+    z-index: 5;
+    background-color: var();
+}
+
+.folder-tab:nth-child(1):hover,
+.folder-tab:nth-child(1).active {
+    background-color: var(--red-elements);
+}
+
+.folder-tab:nth-child(2) {
+    height: 10px;
+    z-index: 4;
+}
+
+.folder-tab:nth-child(2):hover,
+.folder-tab:nth-child(2).active{
+    background-color: var(--green-elements);
+}
+
+
+.folder-tab:nth-child(3) {
+    height: 8px;
+    z-index: 3;
+}
+
+.folder-tab:nth-child(3):hover,
+.folder-tab:nth-child(3).active{
+    background-color: var(--purple-primary-bigFont);
+}
+
+.folder-tab:nth-child(4) {
+    height: 6px;
+    z-index: 2;
+}
+
+.folder-tab:hover,
+.folder-tab.active {
+    background-color: var(--blue-primary-bigFont);
+    color: white;
+    z-index: 2;
+    height: 15px !important;
+    margin-bottom: -2px;
+}
+
+
+.dashboard-content {
+    padding: 20px;
+    background-color: var(--background-interface);
+    border: 2px solid var(--gray-elements);
+    border-top: none;
+    margin-top: -2px;
+}
+
 .display-dashboard .header-map-acess {
+    margin-bottom: -20px;
+    position: relative;
+    z-index: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +132,14 @@ body {
     cursor: pointer;
 }
 
-.display-dashboard .header-map-acess:hover{
+.display-dashboard .header-map-acess.fullscreen {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    animation: grow 0.5s forwards;
+}
+
+.display-dashboard .header-map-acess:hover {
     color: aliceblue;
     border: solid 1px var(--gray-elements);
 }
@@ -221,4 +319,21 @@ body {
     border-radius: 12px;
     color: var(--color-principal-text);
     cursor: pointer;
+}
+
+.chart-container {
+    width: 80%;
+    margin: 20px auto;
+    height: 300px;
+}
+
+
+@keyframes grow {
+    0% {
+        height: 20%;
+    }
+
+    100% {
+        height: 100%;
+    }
 }

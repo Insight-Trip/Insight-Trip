@@ -9,6 +9,11 @@ CREATE DATABASE InsightTrip;
 
 USE InsightTrip;
 
+CREATE TABLE Area (
+    idArea INT PRIMARY KEY AUTO_INCREMENT, 
+    nome VARCHAR(45)
+);
+
 CREATE TABLE Funcionario (
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(45),
@@ -18,8 +23,12 @@ CREATE TABLE Funcionario (
     Telefone VARCHAR(11),
     fkAdministrador INT,
     CONSTRAINT fkFuncionario FOREIGN KEY (fkAdministrador) 
-        REFERENCES Funcionario(idFuncionario)
+    REFERENCES Funcionario(idFuncionario),
+    fkArea INT, 
+    CONSTRAINT fkArea FOREIGN KEY (fkArea) 
+    REFERENCES Area(idArea)
 );
+
 
 CREATE TABLE Agencia (
     idAgencia INT PRIMARY KEY AUTO_INCREMENT,

@@ -20,7 +20,7 @@ CREATE TABLE Funcionario (
     CPF CHAR(14),
     Email VARCHAR(256),
     Senha VARCHAR(45),
-    Telefone VARCHAR(11),
+    Telefone VARCHAR(11),   
     fkAdministrador INT,
     CONSTRAINT fkFuncionario FOREIGN KEY (fkAdministrador) 
     REFERENCES Funcionario(idFuncionario),
@@ -61,7 +61,8 @@ CREATE TABLE Criminalidade (
 CREATE TABLE Eventos (
     idEventos INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(45),
-    Descricao VARCHAR(45)
+    Descricao VARCHAR(45),
+    dataHota DATETIME
 );
 
 CREATE TABLE EstadoHasEvento (
@@ -100,7 +101,7 @@ CREATE TABLE AgenciaHasAeroporto (
 CREATE TABLE Passagem (
     idPassagem INT PRIMARY KEY AUTO_INCREMENT,
     NomePassagem VARCHAR(75),
-    Natureza VARCHAR(10),
+    Natureza VARCHAR(45),
     Origem VARCHAR(75),
     Destino VARCHAR(75),
     dtViagem DATE,
@@ -111,10 +112,39 @@ CREATE TABLE Passagem (
 
 CREATE TABLE Passageiros (
     idPassageiros INT PRIMARY KEY AUTO_INCREMENT,
-    QtdPagos INT,
-    QtdGratis INT,
+    QtdPassageiros INT, 
     DataHora DATETIME,
     fkPassagem INT,
     CONSTRAINT fkPassagemPassageiros FOREIGN KEY (fkPassagem) 
         REFERENCES Passagem(idPassagem)
 );
+
+-- É necessario que a tabela estado esteja alimentada 
+INSERT INTO Estado (Nome, Regiao, CodigoIBGE) VALUES
+('Acre', 'Norte', '12'),
+('Alagoas', 'Nordeste', '27'),
+('Amapá', 'Norte', '16'),
+('Amazonas', 'Norte', '13'),
+('Bahia', 'Nordeste', '29'),
+('Ceará', 'Nordeste', '23'),
+('Distrito Federal', 'Centro-Oeste', '53'),
+('Espírito Santo', 'Sudeste', '32'),
+('Goiás', 'Centro-Oeste', '52'),
+('Maranhão', 'Nordeste', '21'),
+('Mato Grosso', 'Centro-Oeste', '51'),
+('Mato Grosso do Sul', 'Centro-Oeste', '50'),
+('Minas Gerais', 'Sudeste', '31'),
+('Pará', 'Norte', '15'),
+('Paraíba', 'Nordeste', '25'),
+('Paraná', 'Sul', '41'),
+('Pernambuco', 'Nordeste', '26'),
+('Piauí', 'Nordeste', '22'),
+('Rio de Janeiro', 'Sudeste', '33'),
+('Rio Grande do Norte', 'Nordeste', '24'),
+('Rio Grande do Sul', 'Sul', '43'),
+('Rondônia', 'Norte', '11'),
+('Roraima', 'Norte', '14'),
+('Santa Catarina', 'Sul', '42'),
+('São Paulo', 'Sudeste', '35'),
+('Sergipe', 'Nordeste', '28'),
+('Tocantins', 'Norte', '17');

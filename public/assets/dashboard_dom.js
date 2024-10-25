@@ -100,12 +100,12 @@ function createClimateChart() {
             datasets: [{
                 label: 'Temperatura (°C)',
                 data: [22, 24, 27, 23, 20, 18],
-                borderColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 255, 255)',
                 tension: 0.1
             }, {
                 label: 'Precipitação (mm)',
                 data: [50, 60, 70, 80, 90, 100],
-                borderColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(255, 255, 255)',
                 tension: 0.1
             }]
         },
@@ -114,14 +114,36 @@ function createClimateChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Tendências Climáticas'
+                    text: 'Tendências Climáticas',
+                    color: 'white' // Título em branco
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white' // Rótulos do eixo Y em branco
+                    },
+                    title: {
+                        display: true,
+                        text: 'Temperatura (°C)',
+                        color: 'white' // Título do eixo Y em branco
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white' // Rótulos do eixo X em branco
+                    },
+                    title: {
+                        display: true,
+                        text: 'Meses',
+                        color: 'white' // Título do eixo X em branco
+                    }
                 }
             }
         }
     });
 }
 
-// Função para criar o gráfico de eventos sazonais
 function createEventsChart() {
     const ctx = document.getElementById('eventsChart').getContext('2d');
     new Chart(ctx, {
@@ -151,19 +173,37 @@ function createEventsChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Eventos Sazonais'
+                    text: 'Eventos Sazonais',
+                    color: 'white' // Título em branco
                 }
             },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white' // Rótulos do eixo Y em branco
+                    },
+                    title: {
+                        display: true,
+                        text: 'Número de Eventos',
+                        color: 'white' // Título do eixo Y em branco
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white' // Rótulos do eixo X em branco
+                    },
+                    title: {
+                        display: true,
+                        text: 'Estações',
+                        color: 'white' // Título do eixo X em branco
+                    }
                 }
             }
         }
     });
 }
 
-// Função para criar o gráfico de demanda turística sazonal
 function createDemandChart() {
     const ctx = document.getElementById('demandChart').getContext('2d');
     new Chart(ctx, {
@@ -173,12 +213,12 @@ function createDemandChart() {
             datasets: [{
                 label: 'Praias',
                 data: [80, 85, 75, 60, 40, 30, 25, 30, 50, 65, 70, 75],
-                borderColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 255, 255)',
                 tension: 0.1
             }, {
                 label: 'Montanhas',
                 data: [30, 25, 35, 50, 60, 70, 75, 70, 55, 45, 35, 30],
-                borderColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(255, 255, 255)',
                 tension: 0.1
             }]
         },
@@ -187,7 +227,8 @@ function createDemandChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Demanda Turística Sazonal'
+                    text: 'Demanda Turística Sazonal',
+                    color: 'white' // Título em branco
                 }
             },
             scales: {
@@ -196,7 +237,16 @@ function createDemandChart() {
                     max: 100,
                     title: {
                         display: true,
-                        text: 'Demanda (%)'
+                        text: 'Demanda (%)',
+                        color: 'white' // Título do eixo Y em branco
+                    },
+                    ticks: {
+                        color: 'white' // Rótulos do eixo Y em branco
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white' // Rótulos do eixo X em branco
                     }
                 }
             }
@@ -204,7 +254,6 @@ function createDemandChart() {
     });
 }
 
-// Função para criar o gráfico de atividades populares por destino
 function createActivitiesChart() {
     const ctx = document.getElementById('activitiesChart').getContext('2d');
     new Chart(ctx, {
@@ -214,19 +263,19 @@ function createActivitiesChart() {
             datasets: [{
                 label: 'Esportes',
                 data: [70, 80, 30, 50],
-                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
             }, {
                 label: 'Cultura',
                 data: [40, 30, 90, 60],
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
             }, {
                 label: 'Gastronomia',
                 data: [60, 50, 80, 70],
-                backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
             }, {
                 label: 'Relaxamento',
                 data: [80, 70, 40, 90],
-                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
             }]
         },
         options: {
@@ -234,7 +283,8 @@ function createActivitiesChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Atividades Populares por Tipo de Destino'
+                    text: 'Atividades Populares por Tipo de Destino',
+                    color: 'white' // Título em branco
                 }
             },
             scales: {
@@ -243,13 +293,23 @@ function createActivitiesChart() {
                     max: 100,
                     title: {
                         display: true,
-                        text: 'Popularidade (%)'
+                        text: 'Popularidade (%)',
+                        color: 'white' // Título do eixo Y em branco
+                    },
+                    ticks: {
+                        color: 'white' // Rótulos do eixo Y em branco
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white' // Rótulos do eixo X em branco
                     }
                 }
             }
         }
     });
 }
+
 
 function createSafetyIndexChart() {
     const ctx = document.getElementById('safetyIndexChart').getContext('2d');
@@ -260,20 +320,8 @@ function createSafetyIndexChart() {
             datasets: [{
                 label: 'Índice de Segurança',
                 data: [65, 70, 68, 62, 75],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
+                backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                borderColor: 'rgba(255, 255, 255, 1)',
                 borderWidth: 1
             }]
         },
@@ -282,7 +330,8 @@ function createSafetyIndexChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Índice de Segurança por Destino'
+                    text: 'Índice de Segurança por Destino',
+                    color: 'white'
                 }
             },
             scales: {
@@ -291,13 +340,24 @@ function createSafetyIndexChart() {
                     max: 100,
                     title: {
                         display: true,
-                        text: 'Índice de Segurança'
+                        text: 'Índice de Segurança',
+                        color: 'white'
+                    },
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
                     }
                 }
             }
         }
     });
 }
+
+
 
 function createStateCharacteristicsChart() {
     const ctx = document.getElementById('stateCharacteristicsChart').getContext('2d');

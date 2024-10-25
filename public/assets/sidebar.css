@@ -21,6 +21,7 @@
     transition: width 0.3s ease;
 }
 
+
 .sidebar.retracted {
     width: 60px;
     /* Ajuste conforme necessário */

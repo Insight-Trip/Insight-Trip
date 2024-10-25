@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.layout_geral {
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 250px; 
+    height: 100vh; 
+    background-color: #678EEB; 
+    color: white; 
+    padding: 20px; 
+    position: static;
+}
+
+.sidebar h2 {
+    color: aliceblue; 
+    font-size: 30px;
+    margin: 20px;
+    text-align: center; 
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    list-style: none; 
+    padding: 0; 
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white; 
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline; 
+}
+
+.Caixa_Alterar_Tema {
+    margin-top: 230px;
+}
+
+.dashboard-navbar {
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    background-color: #ffffff;
+    position: relative;
+    height: 60px;
+    margin-top: 30px;
+}
+
+.folder-tab-container {
+    position: relative;
+    overflow: hidden;
+    height: 10px;
+    transition: height 0.3s ease;
+    border-radius: 12px 12px 0 0;
+}
+
+.folder-tab {
+    color: white;
+    width: 100px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+
+}
+
+.folder-tab-container.brasil .folder-tab {
+    background-color: rgb(0, 110, 213); /* #006ed5 */
+}
+.folder-tab-container.brasil {
+    height: 25px;
+}
+
+.folder-tab-container.sp .folder-tab {
+    background-color: rgb(231, 76, 60);
+}
+
+.folder-tab-container.rj .folder-tab {
+    background-color: rgb(243, 156, 18);
+}
+
+.folder-tab-container.mg .folder-tab {
+    background-color: rgb(46, 204, 113);
+}
+
+.folder-tab-container.ba .folder-tab {
+    background-color: rgb(155, 89, 182);
+}
+
+.folder-tab-container.rs .folder-tab {
+    background-color: rgb(52, 73, 94);
+}
+
+.folder-tab-container.pr .folder-tab {
+    background-color: rgb(22, 160, 133);
+}
+
+.folder-tab-container.sc .folder-tab {
+    background-color: rgb(41, 128, 185);
+}
+
+.folder-tab-container.pe .folder-tab {
+    background-color: rgb(142, 68, 173);
+}
+
+.folder-tab-container.df .folder-tab {
+    background-color: rgb(192, 57, 43);
+}
+
+.folder-tab-container:hover {
+    height: 25px;
+}
+
+.folder-tab-container.active {
+    height: 25px;
+}
+
+.folder-tab-container:hover .folder-tab,
+.folder-tab-container.active .folder-tab {
+    opacity: 0.9;
+}
+
+/* Mudando a cor de Fundo */
+
+.folder-tab-container.brasil {
+    background-color: rgb(0, 110, 213);
+}
+
+.folder-tab-container.sp {
+    background-color: rgb(231, 76, 60);
+}
+
+.folder-tab-container.rj {
+    background-color: rgb(243, 156, 18);
+}
+
+.folder-tab-container.mg {
+    background-color: rgb(46, 204, 113);
+}
+
+.folder-tab-container.ba {
+    background-color: rgb(155, 89, 182);
+}
+
+.folder-tab-container.rs {
+    background-color: rgb(52, 73, 94);
+}
+
+.folder-tab-container.pr {
+    background-color: rgb(22, 160, 133);
+}
+
+.folder-tab-container.sc {
+    background-color: rgb(41, 128, 185);
+}
+
+.folder-tab-container.pe {
+    background-color: rgb(142, 68, 173);
+}
+
+.folder-tab-container.df {
+    background-color: rgb(192, 57, 43);
+}
+
+
+/* Gráficos */
+
+.chart-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 255, 0.5);
+    color: white;
+}
+
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}

@@ -22,7 +22,6 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    background-color: var(--background-interface);
 }
 
 .display-dashboard {
@@ -33,16 +32,14 @@ body {
 
 .dashboard-navbar {
     display: flex;
-    background-color: var(--background-interface);
+    background-color: #678EEB;
     border-bottom: 2px solid var(--gray-elements);
     position: relative;
     z-index: 1;
-    gap: 10px;
-    align-items: flex-start;
+    gap: 0px;
 }
 
 .folder-tab {
-    padding: 10px 20px;
     margin-right: -10px;
     background-color: var(--background-interface);
     color: var(--color-principal-text);
@@ -99,16 +96,6 @@ body {
     z-index: 2;
 }
 
-.folder-tab:hover,
-.folder-tab.active {
-    background-color: var(--blue-primary-bigFont);
-    color: white;
-    z-index: 2;
-    height: 15px !important;
-    margin-bottom: -2px;
-}
-
-
 .dashboard-content {
     padding: 20px;
     background-color: var(--background-interface);
@@ -124,8 +111,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20vh;
-    background-color: var(--blue-primary-bigFont);
+    height: 25vh;
     font-family: var(--titulos);
     font-size: xx-large;
     color: #ffff;

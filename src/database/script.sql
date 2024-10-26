@@ -104,10 +104,7 @@ CREATE TABLE Passagem (
     Natureza VARCHAR(45),
     Origem VARCHAR(75),
     Destino VARCHAR(75),
-    dtViagem DATE,
-    fkAgencia INT,
-    CONSTRAINT fkAgenciaPassagem FOREIGN KEY (fkAgencia) 
-        REFERENCES Agencia(idAgencia)
+    dtViagem DATETIME
 );
 
 CREATE TABLE Passageiros (
@@ -148,3 +145,6 @@ INSERT INTO Estado (Nome, Regiao, CodigoIBGE) VALUES
 ('São Paulo', 'Sudeste', '35'),
 ('Sergipe', 'Nordeste', '28'),
 ('Tocantins', 'Norte', '17');
+
+
+

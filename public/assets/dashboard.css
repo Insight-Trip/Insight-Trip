@@ -22,6 +22,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    background-color: var(--background-interface);
 }
 
 .display-dashboard {
@@ -32,14 +33,16 @@ body {
 
 .dashboard-navbar {
     display: flex;
-    background-color: #678EEB;
+    background-color: var(--background-interface);
     border-bottom: 2px solid var(--gray-elements);
     position: relative;
     z-index: 1;
-    gap: 0px;
+    gap: 10px;
+    align-items: flex-start;
 }
 
 .folder-tab {
+    padding: 10px 20px;
     margin-right: -10px;
     background-color: var(--background-interface);
     color: var(--color-principal-text);
@@ -59,6 +62,15 @@ body {
     padding-top: 5px;
 }
 
+.folder-tab:hover,
+.folder-tab.active {
+    background-color: var(--blue-primary-bigFont);
+    color: white;
+    z-index: 2;
+    height: 15px !important;
+    margin-bottom: -2px;
+}
+
 .folder-tab:nth-child(1) {
     height: 12px;
     z-index: 5;
@@ -76,7 +88,7 @@ body {
 }
 
 .folder-tab:nth-child(2):hover,
-.folder-tab:nth-child(2).active{
+.folder-tab:nth-child(2).active {
     background-color: var(--green-elements);
 }
 
@@ -87,7 +99,7 @@ body {
 }
 
 .folder-tab:nth-child(3):hover,
-.folder-tab:nth-child(3).active{
+.folder-tab:nth-child(3).active {
     background-color: var(--purple-primary-bigFont);
 }
 
@@ -111,7 +123,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 25vh;
+    height: 20vh;
+    background-color: var(--blue-primary-bigFont);
     font-family: var(--titulos);
     font-size: xx-large;
     color: #ffff;
